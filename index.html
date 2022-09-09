@@ -4,11 +4,18 @@
 <head>
     <title>たのちいげぇむ</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        img {
+            user-drag: none;
+            -webkit-user-drag: none;
+            -moz-user-select: none;
+        }
+    </style>
 </head>
 
 <body>
     <script src="index.js"></script>
-    <img id="ibuki" style="position: absolute; top: 0; left:0;" src="1232.jpg">
+    <img id="ibuki" style="position: absolute; top: 0; left:0;" src="1232.jpg" onmousedown="mousedown()">
 </body>
 
 </html>
