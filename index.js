@@ -1,5 +1,5 @@
 var iW = 0, iH = 0, dW = 0, dH = 0, ibuki, //宣言&初期化
-    y = 0, x = 0, //キャラクターの位置、初期化
+    y = 0, x = 0, //位置、初期化
     k = 15, //速度
     mouse = false, mouseX = 0, mouseY = 0; //マウスの状態
 function windowsizeGet() { dW = document.documentElement.clientWidth, dH = document.documentElement.clientHeight; }; //ウィンドウサイズ取得の関数
@@ -13,6 +13,7 @@ function reflect() { //画像の位置を反映させる関数
 };
 function mousedown() {
     mouse = true;
+
     mouseX = event.clientX - x;
     mouseY = event.clientY - y;
 };
@@ -34,10 +35,10 @@ window.onload = function () {
     };
     //なにかキーが押されたとき、以下のプログラムを実行する
     addEventListener("keydown", event => {
-        if (event.keyCode == 37) x -= k; //「左ボタン」が押されたとき、xの値から32を引き算する
-        if (event.keyCode == 38) y -= k; //「上ボタン」が押されたとき、yの値から32を引き算する
-        if (event.keyCode == 39) x += k; //「右ボタン」が押されたとき、xの値に32を足し算する
-        if (event.keyCode == 40) y += k; //「下ボタン」が押されたとき、yの値に32を足し算する
+        if (event.key == "ArrowLeft" || event.key == "a") x -= k; //「左ボタン」が押されたとき、xの値から32を引き算する
+        if (event.key == "ArrowUp" || event.key == "w") y -= k; //「上ボタン」が押されたとき、yの値から32を引き算する
+        if (event.key == "ArrowRight" || event.key == "d") x += k; //「右ボタン」が押されたとき、xの値に32を足し算する
+        if (event.key == "ArrowDown" || event.key == "s") y += k; //「下ボタン」が押されたとき、yの値に32を足し算する
         reflect();
     });
 };
