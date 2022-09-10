@@ -15,7 +15,6 @@ function mousedown() {
     mouse = true;
     mouseX = event.clientX - x;
     mouseY = event.clientY - y;
-    console.log(mouseX + "x" + mouseY);
 };
 window.onload = function () {
     windowsizeGet();
