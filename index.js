@@ -18,15 +18,30 @@ window.onload = () => {
     console.log("Display Size:" + dW + "x" + dH);
     console.log("Image Size" + iW + "x" + iH);
 
-    ibuki.addEventListener("mousedown", dragstart);
-    ibuki.addEventListener("touchstart", dragstart);
-    addEventListener("mousemove", dragmove);
-    addEventListener("touchmove", dragmove);
-    addEventListener("mouseup", dragend);
-    addEventListener("touchend", dragend);
+    ibuki.addEventListener("mousedown", dragstart, { passive: false });
+    ibuki.addEventListener("touchstart", dragstart, { passive: false });
+    addEventListener("mousemove", dragmove, { passive: false });
+    addEventListener("touchmove", dragmove, { passive: false });
+    addEventListener("mouseup", dragend, { passive: false });
+    addEventListener("touchend", dragend, { passive: false });
 };
-const dragstart = e => { mouse = true; mouseX = e.clientX - x; mouseY = e.clientY - y; };
-const dragmove = e => { if (mouse == true) { x = e.clientX - mouseX; y = e.clientY - mouseY; reflect(); }; };
+const dragstart = e => { 
+    mouse = true;
+    //mousedownかtouchstartかを判断し、evの内容を変える(スマホ操作の場合changedTouche[0]に入る)
+    if (e.type == "mousedown") { var ev = e; } else { var ev = e.changedTouches[0]; };
+    mouseX = ev.clientX - x;
+    mouseY = ev.clientY - y;
+};
+const dragmove = e => {
+    if (mouse == true) {
+        e.preventDefault();
+        //mousemoveかtouchmoveかを判断し、evの内容を変える(スマホ操作の場合changedTouche[0]に入る)
+        if (e.type == "mousemove") { var ev = e; } else { var ev = e.changedTouches[0]; };
+        x = ev.clientX - mouseX;
+        y = ev.clientY - mouseY;
+        reflect();
+    };
+};
 const dragend = e => { mouse = false; };
 //ウィンドウサイズが変更されたとき、以下のプログラムを実行する
 addEventListener('resize', () => { windowsizeGet(); reflect(); });
