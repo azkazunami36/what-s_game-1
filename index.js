@@ -1,4 +1,4 @@
-varvar iW = 0, iH = 0, dW = 0, dH = 0, ibuki, //宣言&初期化
+var iW = 0, iH = 0, dW = 0, dH = 0, ibuki, //宣言&初期化
     y = 0, x = 0, //位置、初期化
     k = 15, //速度
     mouse = false, mouseX = 0, mouseY = 0; //マウスの状態
