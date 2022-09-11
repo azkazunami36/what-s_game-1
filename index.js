@@ -67,6 +67,24 @@ window.onload = () => { //すべて読み込まれると
                 shuffle[i].style.top = Math.floor(Math.random() * (windowxy[1] - shuffle[i].naturalHeight)) + "px"; //スタイル指定
             };
         };
+        if (event.key == "v") { //vキーが押されると
+            var alignment = document.getElementsByClassName("images"); //オブジェクト取得
+            var windowxy = [document.documentElement.clientWidth, document.documentElement.clientHeight]; //画面サイズ取得、縦横
+            var xy = [0,0];
+            for (let i = 0; i != alignment.length; i++) { //alignmentの数だけ
+                xy = windowoverflow(xy[0], xy[1], windowxy[0], windowxy[1], alignment[i].naturalWidth, alignment[i].naturalHeight); //座標の管理、画面外を抑制
+                alignment[i].style.left = xy[0] + "px"; //スタイル指定
+                alignment[i].style.top = xy[1] + "px"; //スタイル指定
+                xy[0] += alignment[i].naturalWidth; //要素の大きさを足す
+                if (xy[0] == windowxy[0]) { //同じになったら
+                    xy[0] = 0; //リセット
+                    xy[1] += alignment[i].naturalHeight; //要素の大きさを足す
+                    if (xy[1] == windowxy[1]) { //同じになったら
+                        xy[1] = 0; //リセット
+                    };
+                };
+            };
+        };
         var ibukixy = [ibuki.getBoundingClientRect().left, ibuki.getBoundingClientRect().top]; //座標取得、左からと上から
         if (event.key == "ArrowLeft" || event.key == "a") ibukixy[0] -= k; //aか←が押されるとk引く
         if (event.key == "ArrowUp" || event.key == "w") ibukixy[1] -= k; //wか↑が押されるとk引く
