@@ -22,7 +22,7 @@ div {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, #ffffffbe, #ffffff00);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.628)55, 255), rgb(0, 0, 0));
 }
 
 img {
@@ -36,8 +36,9 @@ img.background {
     width: 100%;
     height: 100%;
 }
+
 div.background {
-    background-color: #ffffff13;
+    background-color: rgba(255, 255, 255, 0.082);
     position: absolute;
     width: 100%;
     height: 100%;
