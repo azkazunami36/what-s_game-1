@@ -1,6 +1,44 @@
 * {
     overflow: hidden;
+    margin: 0;
 }
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-content: flex-end;
+    height: 100%;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, #ffffffbe, #ffffff00);
+}
+
 img {
     -webkit-user-drag: none;
+}
+
+img.background {
+    filter: blur(20px);
+    top: -10px;
+    left: -10px;
+    width: 100%;
+    height: 100%;
+}
+div.background {
+    background-color: #ffffff13;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
