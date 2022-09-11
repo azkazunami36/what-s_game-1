@@ -16,6 +16,7 @@ window.onload = () => { //すべて読み込まれると
     ibuki.addEventListener("touchstart", dragstart, { passive: false }); //タップされると
     addEventListener("keydown", event => { //キーを押されると
         if (event.key == " ") imagecreate(); //スペースキーが押されたら関数を実行
+        if (event.key == "x") imagedelete(); //xキーが押されたら関数を実行
         if (event.key == "c") imageshuffle(); //cキーが押されたら関数を実行
         if (event.key == "v") imagealignment(); //vキーが押されたら関数を実行
         if (event.key == "a") imagemove("2", "0"); //aが押されたら関数を実行
@@ -106,6 +107,21 @@ const imagealignment = () => { //imagesタグのついた画像の座標を整�
                 xy[1] = 0; //リセット
             };
         };
+    };
+};
+const imagedelete = () => {
+    var deletes = document.getElementsByClassName("images");
+    if (deletes.length == 1) return;
+    deletes[deletes.length - 1].remove();
+    var windowxy = [document.documentElement.clientWidth, document.documentElement.clientHeight]; //画面サイズ取得、縦横
+    if (newimage < 1) {
+        if (windowxy[0] < windowxy[1]) { //画面サイズが横と縦を比べ、縦のほうが広かったら
+            newimage = windowxy[1] - deletes[deletes.length - 1].naturalHeight;
+        } else {
+            newimage = windowxy[0] - deletes[deletes.length - 1].naturalWidth; //newimageが要素の大きさ分引いた画面サイズより大きかったら
+        };
+    } else {
+        newimage -= 5;
     };
 };
 const dragstart = e => { //クリック時などに使う関数
