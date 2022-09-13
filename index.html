@@ -11,15 +11,54 @@
 </head>
 
 <body>
-    <img class="background" src="1232.jpg">
+    <img id="backimage" class="background" src="1232.jpg">
     <div class="background"></div>
-    <div>
+    <div class="help-window">
+            <div style="position: absolute; width: 100%;">
+                <div style="margin: 10px 2.5%;">
+                    <div style="display: flex; justify-content: flex-end;" onclick="helpwindow()">×</div>
+                </div>
+            </div>
+        <div class="help-window-layout">
+            <p style="font-size: 30px;">操作説明</p>
+            <div class="line"></div>
+            <p>w、a、s、d: 一番最初の画像を左右上下に移動できます。</p>
+            <p>同様に↑、←、↓、→キーを使用することもできます</p>
+            <br>
+            <p>スペース: 画像を作成します。</p>
+            <br>
+            <p>c: すべての画像をランダムな場所に移動します。[2*]</p>
+            <br>
+            <p>v: 画像を整列します。一番右まで並んだ場合、その画像の大きさをもとに画像を下に下げ並べる仕様です。右下に付くと最初の場所に戻り、ループします。[2*]</p>
+            <br>
+            <p>x: 表示された画像を削除します。最初にある画像は削除できないため、ご了承ください。</p>
+            <br>
+            <p>t: 画像を順番に変更します。この文を書いてる時点では次の画像が存在します。影響するのは１番目の画像、作成する画像です。[1*]</p>
+            <p>1232.jpg(かずなみが取り寄せた画像)</p>
+            <p>1233.jpg(伊吹さんが配置した初期画像)</p>
+            <p>favicon.ico(1233.jpgを加工したファビコン)</p>
+            <br>
+            <p>g: 画像の色を反転します。影響するのは背景、１番目の画像、作成する画像です。[1*][2*]</p>
+            <br>
+            <p>h: このヘルプを表示します。もう一度押すと閉じることができます。</p>
+            <br>
+            <div class="line"></div>
+            <p>[1*]: １枚目を除く既に作成済みの画像は影響しません。</p>
+            <p>[2*]: 画像の数が多い場合、表示に時間がかかる可能性があります。</p>
+            <br>
+            <div class="line" style="margin-left: auto;"></div>
+            <p style="text-align: right; color: #00000085;">create by かずなみ & 伊吹ch</p>
+        </div>
+    </div>
+    <div class="text">
         <p>Spaceキー: 画像を生成</p>
         <p>Cキー: 画像をランダムな場所に配置 </p>
         <p>Vキー: 画像を整列</p>
         <p>Xキー: 画像を削除</p>
+        <p>Tキー: 画像を変更</p>
+        <p>Hキー: ヘルプを表示</p>
         <p>画像を生成しすぎないでください。処理が遅くなり、フリーズの恐れがあります。</p>
-        <br>
+        <div class="line" style="width: 95%;"></div>
         <p>作成者: あんこかずなみ36</p>
         <p>コード提供: 伊吹ch</p>
     </div>
